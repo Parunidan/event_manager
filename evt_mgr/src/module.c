@@ -24,7 +24,6 @@ struct module* insert_module(){
 
 	last->next = new_module;
 	new_module->prev = last;
-	new_module->next = NULL;
 	last = new_module;
 
 	return(new_module);
