@@ -4,7 +4,6 @@
 
 
 int n_evt;
-struct module *first = NULL, *last = NULL;
 
 int main(){
 	int run = 1, x;

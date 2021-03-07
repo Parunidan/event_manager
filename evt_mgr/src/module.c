@@ -4,7 +4,7 @@
 #include<event_manager.h>
 
 extern int n_evt;
-extern struct module *first, *last;
+struct module *first = NULL, *last = NULL;
 
 void init_module(struct module *module){
 	module->next = NULL;
