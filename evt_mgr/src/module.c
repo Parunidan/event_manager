@@ -66,17 +66,34 @@ fptr get_fptr(int i){
 	}
 }
 
+_Bool is_digit(char c){
+        return((c >= 48) && (c <= 57));
+}
+
+int get_evt_bmap(char *events){
+        int event = 0, event_bmap = 0, index = 0;
+        char c = events[index];
+        while(c != '\0'){
+                if(is_digit(c)){
+                        event = (event * 10) + (c - 48);
+                }
+                else if(event > 0){
+                        event_bmap |= 1 << (event -1);
+                        event = 0;
+                }
+                c = events[++index];
+        }
+        if(event > 0)
+                event_bmap |= 1 << (event -1);
+        return(event_bmap);
+}
+
 void module_init(){
-	int evt = 0, x = 0;
+	char events[100];
 	for(int id = 1; id <= 5 ; id++){
-		printf("Enter the events Module%d is interested in:\nEnter -1 when done\n", id);
-		scanf("%d",&x);
-		while((x != -1) && (x>0) && (x <= n_evt)){
-			evt |= 1 << (x - 1);
-			scanf("%d",&x);
-		}
-		register_event(id, evt, get_fptr(id));
-		evt = 0;
+		printf("Enter the events Module %d is interested in separated by commas:\n", id);
+		scanf("%s", events);
+		register_event(id, get_evt_bmap(events), get_fptr(id));
 	}
 }
 

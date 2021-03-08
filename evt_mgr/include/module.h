@@ -24,6 +24,10 @@ void module5();
 
 fptr get_fptr(int i);
 
+_Bool is_digit(char c);
+
+int get_evt_bmap(char *events);
+
 void module_init();
 
 void freeall_module();
