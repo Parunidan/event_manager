@@ -1,3 +1,5 @@
+#include<stdbool.h>
+
 typedef void (*fptr)(void);
 
 struct module{                                                         
@@ -24,7 +26,7 @@ void module5();
 
 fptr get_fptr(int i);
 
-_Bool is_digit(char c);
+bool is_digit(char c);
 
 int get_evt_bmap(char *events);
 

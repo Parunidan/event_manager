@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<module.h>
 #include<event_manager.h>
+#include<stdbool.h>
 
 extern int n_evt;
 struct module *first = NULL, *last = NULL;
@@ -66,7 +67,7 @@ fptr get_fptr(int i){
 	}
 }
 
-_Bool is_digit(char c){
+bool is_digit(char c){
         return((c >= 48) && (c <= 57));
 }
 
