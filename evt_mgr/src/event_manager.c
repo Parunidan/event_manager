@@ -20,7 +20,7 @@ void execute_event(int event){
 	struct module *temp = first;
 	while(temp != NULL){
 		if (ifset(event, temp)){
-			temp->cb();
+			temp->cb(event);
 		}
 		temp = temp->next;
 	}

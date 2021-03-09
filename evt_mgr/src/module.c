@@ -30,24 +30,24 @@ struct module* insert_module(){
 	return(new_module);
 }
 
-void module1(){
-	printf("%s\n", __func__);
+void module1(int event){
+	printf("Event: %d --> %s\n",event,  __func__);
 }
 
-void module2(){
-	printf("%s\n", __func__);
+void module2(int event){
+        printf("Event: %d --> %s\n",event,  __func__);
 }
 
-void module3(){
-	printf("%s\n", __func__);
+void module3(int event){
+        printf("Event: %d --> %s\n",event,  __func__);
 }
 
-void module4(){
-	printf("%s\n", __func__);
+void module4(int event){
+        printf("Event: %d --> %s\n",event,  __func__);
 }
 
-void module5(){
-	printf("%s\n", __func__);
+void module5(int event){
+        printf("Event: %d --> %s\n",event,  __func__);
 }
 
 fptr get_fptr(int i){
