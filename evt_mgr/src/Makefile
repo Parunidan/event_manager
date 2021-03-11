@@ -7,7 +7,7 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = module.h event_manager.h
+_DEPS = module.h event_manager.h bit_macro.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = init.o module.o event_manager.o

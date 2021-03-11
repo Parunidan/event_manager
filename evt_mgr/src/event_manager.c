@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<module.h>
 #include<event_manager.h>
-
-#define IFSET(val, pos) ((val >> (pos - 1)) & 1)
+#include<bit_macro.h>
 
 extern struct module *first, *last;
 

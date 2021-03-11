@@ -3,8 +3,7 @@
 #include<module.h>
 #include<event_manager.h>
 #include<stdbool.h>
-
-#define SETBIT(val, pos) (val |= 1 << (pos -1))
+#include<bit_macro.h>
 
 extern int n_evt;
 struct module *first = NULL, *last = NULL;
