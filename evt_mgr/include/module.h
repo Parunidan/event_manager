@@ -1,6 +1,6 @@
 #include<stdbool.h>
 
-typedef void (*fptr)(void);
+typedef void (*fptr)(int);
 
 struct module{                                                         
         int id;                                                        

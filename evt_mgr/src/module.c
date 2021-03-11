@@ -4,6 +4,8 @@
 #include<event_manager.h>
 #include<stdbool.h>
 
+#define SETBIT(val, pos) (val |= 1 << (pos -1))
+
 extern int n_evt;
 struct module *first = NULL, *last = NULL;
 
@@ -79,13 +81,13 @@ int get_evt_bmap(char *events){
                         event = (event * 10) + (c - 48);
                 }
                 else if(event > 0){
-                        event_bmap |= 1 << (event -1);
-                        event = 0;
+                        SETBIT(event_bmap, event);
+			event = 0;
                 }
                 c = events[++index];
         }
         if(event > 0)
-                event_bmap |= 1 << (event -1);
+		SETBIT(event_bmap, event);
         return(event_bmap);
 }
 
