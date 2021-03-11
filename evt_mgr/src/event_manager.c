@@ -2,6 +2,8 @@
 #include<module.h>
 #include<event_manager.h>
 
+#define IFSET(val, pos) ((val >> (pos - 1)) & 1)
+
 extern struct module *first, *last;
 
 void register_event(int id, int evt_bmap, fptr cb){
@@ -12,14 +14,10 @@ void register_event(int id, int evt_bmap, fptr cb){
 	return;
 }
 
-int ifset(int event, struct module *module){
-	return((module->event_bmap >> (event - 1)) & 1);
-}
-
 void execute_event(int event){
 	struct module *temp = first;
 	while(temp != NULL){
-		if (ifset(event, temp)){
+		if (IFSET(temp->event_bmap, event)){
 			temp->cb(event);
 		}
 		temp = temp->next;
